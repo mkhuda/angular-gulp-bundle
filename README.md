@@ -1,5 +1,9 @@
 Angular Basic with Gulp and Browserify
 =======================================================================
-Starting with very basic angular 1.0 project, this repository will update immediately. For sure, I will update with some minimal Controller, States, and Services provided by Angular 1.
+Starting with very basic angular 1.0 project, this repository will update immediately. For sure, I will update with some minimal Controllers, Directives, and Factories provided by Angular 1.0 .
 
-#Thank you
+## Tech That I Use
+- Node 6.10.3 (running on Ubuntu 14.04)
+- NVM (Node Version Manager)
+
+# Thank you
