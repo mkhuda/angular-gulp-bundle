@@ -6,4 +6,14 @@ Starting with very basic angular 1.0 project, this repository will update immedi
 - Node 6.10.3 (running on Ubuntu 14.04)
 - NVM (Node Version Manager)
 
-# Thank you
+## Installation and Usage
+```sh
+$ npm install
+```
+Installing all dependencies
+```sh
+$ gulp start
+```
+Open automatically on your favourite Web Browser
+
+### Thank you
