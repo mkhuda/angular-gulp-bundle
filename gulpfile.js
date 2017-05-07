@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     del = require('del'),
     inject = require('gulp-inject'),
     webserver = require('gulp-webserver'),
+    connect = require('gulp-connect'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -56,7 +57,6 @@ gulp.task('build-js', ['clean'], function() {
 });
 
 gulp.task('build', ['build-app-templates', 'build-js'], function(){  
-  console.log('building index');
   return gulp.src('app/index.html')
     .pipe(cachebust.references())
     .pipe(gulp.dest('dist'));
@@ -67,10 +67,14 @@ gulp.task('watch', function() {
 });
 
 gulp.task('start', ['watch', 'build'], function() {
-  gulp.src('.')
-      .pipe(webserver({
-          livereload: false,
-          directoryListing: false,
-          open: "http://localhost:8000/dist/index.html#!/"
-      }));
-})
+    // gulp.src('.')
+    //     .pipe(webserver({
+    //         livereload: false,
+    //         directoryListing: false,
+    //         open: "http://localhost:8000/dist/index.html#!/"
+    //     }));
+    connect.server({
+      root: 'dist/',
+      port: 3000
+    });
+});
