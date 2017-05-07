@@ -23,11 +23,25 @@ gulp.task('clean', function () {
     return del(['./dist']);
 });
 
+gulp.task('build-app-templates', ['clean'], function() {
+    
+    var ngHtml2Js = require("gulp-ng-html2js"),
+        concat = require("gulp-concat");
+    
+    return gulp.src("./app/templates/*.html")
+        .pipe(ngHtml2Js({
+            moduleName: "appTemplates",
+            prefix: "./templates/"
+        }))
+        .pipe(concat("appTemplates.js"))
+        .pipe(gulp.dest("./dist"));
+});
 
 gulp.task('build-js', ['clean'], function() {
   var b = browserify({
         entries: './app/main.js',
         debug: true,
+        paths: ['./app/controllers/'],
         transform: [ngAnnotate]
     });
   return b.bundle()
@@ -41,7 +55,7 @@ gulp.task('build-js', ['clean'], function() {
         .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('build', ['build-js'], function(){  
+gulp.task('build', ['build-app-templates', 'build-js'], function(){  
   console.log('building index');
   return gulp.src('app/index.html')
     .pipe(cachebust.references())
@@ -49,14 +63,14 @@ gulp.task('build', ['build-js'], function(){
 });
 
 gulp.task('watch', function() {
-    return gulp.watch(['./app/index.html', './app/*.js'], ['build']);
+    return gulp.watch(['./app/index.html', './app/templates/*.html', './app/*.js', './app/**/*.js'], ['build']);
 });
 
 gulp.task('start', ['watch', 'build'], function() {
   gulp.src('.')
       .pipe(webserver({
           livereload: false,
-          directoryListing: true,
-          open: "http://localhost:8000/dist/index.html"
+          directoryListing: false,
+          open: "http://localhost:8000/dist/index.html#!/"
       }));
 })
