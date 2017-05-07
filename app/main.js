@@ -6,7 +6,7 @@ require('../dist/appTemplates');
 
 var appku = angular.module('appku', ['ngRoute', 'ui.router', 'appTemplates']);
 
-appku.config(function($routeProvider, $stateProvider) {
+appku.config(function($routeProvider, $stateProvider, $locationProvider) {
   $stateProvider
     .state('home',{
       url: '/',
@@ -18,6 +18,7 @@ appku.config(function($routeProvider, $stateProvider) {
       templateUrl: './templates/other.html',
       controller: 'OtherController'
     });
+  $locationProvider.html5Mode(true);
 });
 
 require('MainController');
