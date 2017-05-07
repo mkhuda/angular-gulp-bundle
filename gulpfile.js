@@ -19,15 +19,12 @@ gulp.task('serve', function () {
   console.log('Sample Serve');
 });
 
-gulp.task('clean', function (cb) {
-    console.log('cleaning dist');
-    del([
-        'dist'
-    ], cb);
+gulp.task('clean', function () {
+    return del(['./dist']);
 });
 
 
-gulp.task('build-js', function() {
+gulp.task('build-js', ['clean'], function() {
   var b = browserify({
         entries: './app/main.js',
         debug: true,
