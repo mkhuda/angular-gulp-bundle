@@ -1,6 +1,6 @@
 angular = require('angular');
 
-angular.module('appku')
+angular.module('angulargulpbundler')
   .controller('OtherController', function ($scope, $routeParams, $filter) {
     console.log('Other Controller Started');
   });
