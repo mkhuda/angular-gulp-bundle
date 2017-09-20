@@ -1,7 +1,6 @@
 require('angular');
 require('angular-route');
 require('angular-ui-router');
-
 require('../dist/appTemplates');
 
 const appku = angular.module('angulargulpbundler', ['ngRoute', 'ui.router', 'appTemplates']);
