@@ -4,7 +4,7 @@ require('angular-ui-router');
 
 require('../dist/appTemplates');
 
-var appku = angular.module('appku', ['ngRoute', 'ui.router', 'appTemplates']);
+const appku = angular.module('angulargulpbundler', ['ngRoute', 'ui.router', 'appTemplates']);
 
 appku.config(function($routeProvider, $stateProvider, $locationProvider) {
   $stateProvider
