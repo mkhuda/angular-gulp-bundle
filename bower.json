@@ -1,9 +1,9 @@
 {
-  "name": "angular-basic-build",
+  "name": "angular-gulp-bundle",
   "description": "Angular JS 1.0 Basic Build",
   "main": "app/main.js",
   "authors": [
-    "mkhuda"
+    "Muhammad K. Huda"
   ],
   "license": "GPL-3.0",
   "homepage": "https://github.com/mkhuda/angular-gulp-bundle",
